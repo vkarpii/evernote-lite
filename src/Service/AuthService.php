@@ -2,23 +2,24 @@
 namespace App\Service;
 
 use App\Repository\UserRepository;
+use App\Exceptions\Login\UserNotFoundException;
 
 class AuthService{
 
     public function __construct(private UserRepository $users)
     {}
 
-    public function login(string $email, string $password): bool
-    {
+    public function login(string $email, string $password): bool{
         $user = $this->users->findByEmail($email);
 
         if (!$user) {
-            return false;
+            throw new UserNotFoundException();
         }
-        # if (!password_verify($password, $user['password'])) {
-        if ($password !== $user['password']) {
-            return false;
+        /*
+        if (!password_verify($password, $user->getPasswordHash())) {
+            throw new WrongPasswordException();
         }
+        */
 
         $_SESSION['user_id'] = $user['id'];
         return true;

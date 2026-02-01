@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Service\AuthService;
+use App\Exceptions\Login\LoginException;
 
 class AuthController
 {
@@ -30,6 +31,13 @@ class AuthController
         $email = $_POST['email'] ?? '';
         $password = $_POST['password'] ?? '';
 
+        try {
+            $this->authService->login($email, $password);
+            #redirect to main page
+        } catch (LoginException $e) {
+            header('Location: /login');
+        }
+/*
         if($email === '' || $password === ''){
             $_SESSION['error'] = 'Заповніть всі поля';
             header('Location: /login');
@@ -43,6 +51,6 @@ class AuthController
         $result = $this->authService->login($email, $password);
 
         echo $email."  ".$password;
-        echo $_SESSION['user_id'];
+        echo $_SESSION['user_id'];*/
         }
 }
