@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+</head>
+
+<style>
+   @keyframes bounce {
+    0% {
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(5deg);
+    }
+    75%{
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+   }
+   @keyframes changeColor {
+    from{background-color: blue;}
+    to{background-color: blueviolet;}
+   }
+   
+   button{
+    animation-name: bounce;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    padding: 10px 20px 10px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: blue;
+    color: white;
+    border-radius: 20px;
+    border: 0px;
+   }
+   body{
+    padding: 200px;
+   }
+   </style>
+
+<body>
+
+    <button>
+        Test button
+    </button>
+
+</body>
+</html>

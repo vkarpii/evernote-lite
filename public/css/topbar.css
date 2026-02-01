@@ -1,0 +1,42 @@
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #1f222a;
+}
+
+.topbar h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: #1c1f26;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  color: #fff;
+}
+
+.sort {
+  background: #1c1f26;
+  border: 1px solid #2a2d36;
+  color: #ccc;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+}
