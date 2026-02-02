@@ -1,27 +1,43 @@
-<form method="post" action="">
-    <a href="/public/login">< Back to login</a><br><br>
+<?php
+    $email = $_SESSION['old_email'] ?? '';
+    unset($_SESSION['old_email']);
+    
+    $name = $_SESSION['old_name'] ?? '';
+    unset($_SESSION['old_name']);
 
-    <h2>Registration</h2>
+    $surname = $_SESSION['old_surname'] ?? '';
+    unset($_SESSION['old_surname']);
+?>
 
-<div class="field">
-        <input type="text" placeholder="Name" />
-    </div>
+<form method="post" action="/registrationAction">
+    <a href="/login">
+        < Back to login</a><br><br>
 
-    <div class="field">
-        <input type="text" placeholder="Surname" />
-    </div>
+            <h2>Registration</h2>
 
-    <div class="field">
-        <input type="email" placeholder="Email" />
-    </div>
+            <?php include __DIR__ . '/error.php'; ?>
 
-    <div class="field">
-        <input type="password" placeholder="Password" />
-    </div>
+            <div class="field">
+                <input type="text" name="name" placeholder="Name" value="<?= $name ?>"/>
+            </div>
 
-    <div class="field">
-        <input type="password-repeat" placeholder="Repeat password" />
-    </div>
+            <div class="field">
+                <input type="text" name="surname" placeholder="Surname" value="<?= $surname ?>" />
+            </div>
 
-    <button class="btn">Login</button>
+            <div class="field">
+                <input type="email" name="email" placeholder="Email" value="<?= $email ?>" />
+            </div>
+
+            <div class="password-wrapper field">
+                <input type="password" id="password" placeholder="Password">
+                <span class="togglePassword eye">👁️</span>
+            </div>
+
+            <div class="password-wrapper field">
+                <input type="password" id="confirmPassword" placeholder="Repeat Password">
+                <span class="togglePassword eye">👁️</span>
+            </div>
+
+            <button class="btn">Register</button>
 </form>

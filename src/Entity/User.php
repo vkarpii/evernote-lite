@@ -13,11 +13,12 @@ class User{
     private bool $isVerified;
     private string $lastLoginAt;
 
-    public function __construct($name, $surname, $email)
+    public function __construct($id, $name, $surname, $email, $password)
     {
-        $this->id = 1;
+        $this->id = $id;
         $this->name = $name;
         $this->surname = $surname;
+        $this->email = $email;
     }
 
     public function getId(): int{

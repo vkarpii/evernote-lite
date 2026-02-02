@@ -1,4 +1,6 @@
 <?php
+use App\Entity\User;
+
 class Note{
     private int $id;
     private User $owner;
