@@ -6,6 +6,8 @@
   <title>Notes App – Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/css/auth.css" />
+  <link rel="stylesheet" href="/css/password-wrapper.css" />
+  <link rel="stylesheet" href="/css/error.css"/>
 </head>
 
 <body>
@@ -26,6 +28,8 @@
       <?= $content ?>
     </div>
 
+
+    <script src="/js/toggleIcons.js"></script>
 </body>
 
 </html>

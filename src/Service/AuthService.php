@@ -71,7 +71,7 @@ class AuthService{
             throw new InvalidEmailException();
         }
 
-        if (!$this->isStrongPassword($password)) {
+        if ($this->isStrongPassword($password)) {
             throw new WeakPasswordException();
         }
 

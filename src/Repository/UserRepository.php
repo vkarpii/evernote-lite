@@ -43,7 +43,7 @@ class UserRepository
     ): int {
         $stmt = $this->db->prepare(
             "INSERT INTO users (name, surname, email, password, last_login_at) 
-            VALUES (:name, :surname, :email, :password, :NOW())"
+            VALUES (:name, :surname, :email, :password, NOW())"
         );
 
         $stmt->execute([

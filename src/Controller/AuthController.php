@@ -46,6 +46,8 @@ class AuthController
             $this->authService->login($email, $password);
             header('Location: /');
         } catch (LoginException $e) {
+            $_SESSION['error'] = $e->getMessage();
+            $_SESSION['old_email'] = $email;
             header('Location: /login');
         }
     }
@@ -62,6 +64,10 @@ class AuthController
             $this->authService->registration($name, $surname, $email, $password, $repeatPassword);
             header('Location: /');
         } catch (RegistrationException $e) {
+            $_SESSION['error'] = $e->getMessage();
+            $_SESSION['old_email'] = $email;
+            $_SESSION['old_name'] = $name;
+            $_SESSION['old_surname'] = $surname;
             header('Location: /registration');
         }
     }
