@@ -1,22 +1,20 @@
 <?php
 namespace App\Exceptions;
 
-use Throwable;
-
 class AppException  extends \Exception{
-    protected int $code;
+    protected int $errorCode;
 
-    public function __construct(string $message = "Undefined error", int $code = 0){
-        $this->code = $code;
-        return parent::__construct($message, $code);
+    public function __construct(string $message = "Undefined error", int $errorCode = 0){
+        $this->errorCode = $errorCode;
+        return parent::__construct($message, $errorCode);
     }
 
     public function getErrorCode(): int{
-        return $this->code;
+        return $this->errorCode;
     }
 
     public function getFullMessage(): string{
-        return "[Error {$this->code}]: {$this->getMessage()}";
+        return "[Error {$this->errorCode}]: {$this->getMessage()}";
     }
 }
 

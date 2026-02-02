@@ -13,6 +13,3 @@ CREATE TABLE users (
     is_verified BOOLEAN DEFAULT FALSE,                -- чи підтверджений email
     last_login_at DATETIME DEFAULT NULL               -- останній вхід
 );
-
-INSERT INTO users (name, surname, email, password, is_verified) VALUES
-('Admin', 'User', 'admin@gmail.com', '1111', TRUE);

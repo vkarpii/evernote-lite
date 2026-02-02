@@ -9,7 +9,7 @@
         <input type="password" name="password" placeholder="Password" />
     </div>
     
-    <a href="/public/registration">Don't have an account yet?</a>
+    <a href="/registration">Don't have an account yet?</a>
 
     <button class="btn">Login</button>
 </form>

@@ -39,7 +39,7 @@ $routes = [
     ],
     'POST' => [
        '/loginAction' => [App\Controller\AuthController::class, 'loginAction'],
-       #'/registration' => [App\Controller\AuthController::class, 'login'],
+       '/registrationAction' => [App\Controller\AuthController::class, 'registrationAction'],
     ],
 ];
 
