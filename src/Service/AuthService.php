@@ -24,12 +24,12 @@ class AuthService{
         if (!$user) {
             throw new UserNotFoundException();
         }
-        if (!password_verify($password, $user['password'])) {
+        if (!$user->verifyPassword($password)) {
              throw new WrongPasswordException();
         }
 
-        $this->users->updateLastLogin($user['id']);
-        $_SESSION['user_id'] = $user['id'];
+        $this->users->updateLastLogin($user->getId());
+        $_SESSION['user_id'] = $user->getId();
         return true;
     }
 

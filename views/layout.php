@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Notes UI</title>
-  <link rel="stylesheet" href="/views/assets/css/layout.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
 </head>
 <body>
 

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repository;
 
 use PDO;
+use App\Entity\Partical\AuthUser;
 
 class UserRepository
 {
@@ -12,7 +13,7 @@ class UserRepository
         private PDO $db
     ) {}
 
-    public function findByEmail(string $email): ?array
+    public function findByEmail(string $email): ?AuthUser
     {
         $stmt = $this->db->prepare(
             'SELECT id, password FROM users WHERE email = :email LIMIT 1'
@@ -22,7 +23,14 @@ class UserRepository
         ]);
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $user ?: null;
+
+        if (!$user) {
+            return null;
+        }
+        return new AuthUser(
+            $user['id'],
+            $user['password']
+        );
     }
 
     public function isEmailExist(string $email): bool
