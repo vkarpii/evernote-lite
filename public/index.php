@@ -36,6 +36,7 @@ $routes = [
         '/' => [App\Controller\NoteController::class, 'index'],
         '/login' => [App\Controller\AuthController::class, 'login'],
         '/registration' => [App\Controller\AuthController::class, 'registration'],
+        '/exit' => [App\Controller\AuthController::class, 'exit']
     ],
     'POST' => [
        '/loginAction' => [App\Controller\AuthController::class, 'loginAction'],

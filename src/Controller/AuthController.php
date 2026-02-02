@@ -65,4 +65,9 @@ class AuthController
             header('Location: /registration');
         }
     }
+
+    public function exit(): void{
+        unset($_SESSION['user_id']);
+        header('Location: /login');
+    }
 }
