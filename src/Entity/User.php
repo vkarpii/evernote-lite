@@ -7,14 +7,22 @@ class User{
     private string $surname;
     private string $icon;
     private string $email;
-    private string $password;
     private string $createdAt;
     private string $updatedAt;
     private bool $isVerified;
     private string $lastLoginAt;
 
-    public function __construct($id, $name, $surname, $email, $password)
-    {
+    public function __construct(
+        $id, 
+        $name, 
+        $surname, 
+        $email, 
+        $icon,
+        $createdAt,
+        $updatedAt,
+        $isVerified,
+        $lastLoginAt
+        ){
         $this->id = $id;
         $this->name = $name;
         $this->surname = $surname;
@@ -35,6 +43,10 @@ class User{
 
     public function getEmail(): string{
         return $this->email;
+    }
+
+    public function getFullName() : string{
+        return $this->name . " " . $this->surname;
     }
 }
 ?>

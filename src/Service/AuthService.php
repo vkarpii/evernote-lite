@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Entity\User;
 use App\Repository\UserRepository;
 use App\Exceptions\Login\UserNotFoundException;
 use App\Exceptions\Login\WrongPasswordException;
@@ -92,5 +93,10 @@ class AuthService{
         $_SESSION['user_id'] = $userId;
 
         return true;
+    }
+
+     public function getCurrentUser() : ?User {
+        $id = $_SESSION['user_id'];
+        return $this->users->getUserById($id);;
     }
 }

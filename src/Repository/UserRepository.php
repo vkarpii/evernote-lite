@@ -6,6 +6,7 @@ namespace App\Repository;
 
 use PDO;
 use App\Entity\Partical\AuthUser;
+use App\Entity\User;
 
 class UserRepository
 {
@@ -72,5 +73,27 @@ class UserRepository
         $stmt->execute([
             ':id' => $userId,
         ]);
+    }
+
+    public function getUserById(int $userId) : User{
+        $stmt = $this->db->prepare(
+            'SELECT * FROM users WHERE id = :id LIMIT 1'
+        );
+        $stmt->execute([
+            'id' => $userId
+        ]);
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        return new User(
+            $user['id'],
+            $user['name'],
+            $user['surname'],
+            $user['email'],
+            $user['icon'],
+            $user['created_at'],
+            $user['created_at'],
+            $user['is_verified'],
+            $user['last_login_at'],
+        );
     }
 }

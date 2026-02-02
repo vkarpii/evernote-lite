@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Notes UI</title>
   <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/edit-note.css" />
 </head>
 <body>
 
@@ -11,7 +12,7 @@
   <aside class="sidebar">
     <div class="profile">
       <img src="https://i.pravatar.cc/60" alt="User">
-      <span>John Doe</span>
+      <span><?= $user->getFullName() ?></span>
     </div>
 
     <input class="search" type="text" placeholder="Search" />
@@ -46,30 +47,14 @@
     <header class="topbar">
       <h1>ALL</h1>
       <div class="actions">
-        <button class="icon">＋</button>
+        <a class="icon" href="/create-note">＋</a>
         <button class="icon">▶</button>
         <button class="icon">🔔</button>
         <button class="dropdown">Last modified ⌄</button>
       </div>
     </header>
 
-    <p class="subtitle">Just for test!</p>
-
-    <div class="note">
-      <div class="note-header">
-        <h3>UI Inspiration</h3>
-        <div class="status">
-          <span class="s orange"></span>
-          <span class="s blue"></span>
-          <span class="s red"></span>
-        </div>
-      </div>
-      <p>
-        Collect clean and minimal UI ideas for future projects.
-        Focus on dark themes, smooth gradients, subtle shadows,
-        and simple card-based layouts.
-      </p>
-    </div>
+     <?= $content ?>
   </main>
 
 </body>

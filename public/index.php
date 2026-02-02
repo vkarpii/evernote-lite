@@ -33,10 +33,11 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 $routes = [
     'GET' => [
-        '/' => [App\Controller\NoteController::class, 'index'],
+        '/' => [App\Controller\MainController::class, 'index'],
         '/login' => [App\Controller\AuthController::class, 'login'],
         '/registration' => [App\Controller\AuthController::class, 'registration'],
-        '/exit' => [App\Controller\AuthController::class, 'exit']
+        '/exit' => [App\Controller\AuthController::class, 'exit'],
+        '/create-note' => [App\Controller\MainController::class, 'addNewNote']
     ],
     'POST' => [
        '/loginAction' => [App\Controller\AuthController::class, 'loginAction'],
