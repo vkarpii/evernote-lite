@@ -28,6 +28,7 @@ class AuthService{
              throw new WrongPasswordException();
         }
 
+        $this->users->updateLastLogin($user['id']);
         $_SESSION['user_id'] = $user['id'];
         return true;
     }
